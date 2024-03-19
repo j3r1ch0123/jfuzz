@@ -14,6 +14,8 @@ banner = """\
                                                                                          
 """
 
+format = "Format: python3 jfuzz.py -u <url> -w <wordlist> -t <threads>"
+
 def run(url, wordlist, thread_number):
     threads = []
     for i in range(int(thread_number)):
@@ -39,12 +41,12 @@ if __name__ == "__main__":
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hu:w:t:", ["url=", "wordlist=", "threads="])
     except getopt.GetoptError:
-        print("Format: python3 jfuzz.py -u <url> -w <wordlist> -t <threads>")
+        print(format)
         sys.exit(2)
 
     for opt, arg in opts:
         if opt == "-h":
-            print("Format: python3 jfuzz.py -u <url> -w <wordlist> -t <threads>")
+            print(format)
             sys.exit()
         elif opt in ("-u", "--url"):
             url = arg
