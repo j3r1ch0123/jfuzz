@@ -36,7 +36,7 @@ if __name__ == "__main__":
     print(banner)
     url = ''
     wordlist = ''
-    thread_number = 5
+    thread_number = 5 # Set default threads to 5
 
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hu:w:t:", ["url=", "wordlist=", "threads="])
