@@ -3,6 +3,16 @@ import requests
 import sys
 import getopt
 
+banner = """\
+     ██╗███████╗██╗   ██╗███████╗███████╗
+     ██║██╔════╝██║   ██║╚══███╔╝╚══███╔╝
+     ██║█████╗  ██║   ██║  ███╔╝   ███╔╝ 
+██   ██║██╔══╝  ██║   ██║ ███╔╝   ███╔╝  
+╚█████╔╝██║     ╚██████╔╝███████╗███████╗
+ ╚════╝ ╚═╝      ╚═════╝ ╚══════╝╚══════╝
+                                                                                         
+"""
+
 def main(argv):
     url = ''
     wordlist = ''
@@ -25,10 +35,10 @@ def main(argv):
 
     with open(wordlist, "r") as words:
         for line in words.readlines():
-            fuzz = url + line.strip()
+            fuzz = url + line.strip()  # Corrected line: call strip() on line, not words
             response = requests.get(fuzz)
             print(fuzz, response.status_code)
 
 if __name__ == "__main__":
+    print(banner)
     main(sys.argv[1:])
-
