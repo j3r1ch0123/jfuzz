@@ -30,13 +30,14 @@ def main(url, wordlist):
     for line in wordlist:
         fuzz = url + line.strip()
         response = requests.get(fuzz)
-        print(fuzz, response.status_code)
+        if response.status_code == 200:
+            print(fuzz, response.status_code)
 
 if __name__ == "__main__":
     print(banner)
     url = ''
     wordlist = ''
-    thread_number = 5 # Set default threads to 5
+    thread_number = 5
 
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hu:w:t:", ["url=", "wordlist=", "threads="])
