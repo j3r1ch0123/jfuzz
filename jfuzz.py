@@ -35,7 +35,7 @@ def main(argv):
 
     with open(wordlist, "r") as words:
         for line in words.readlines():
-            fuzz = url + line.strip()  # Corrected line: call strip() on line, not words
+            fuzz = url + line.strip()
             response = requests.get(fuzz)
             print(fuzz, response.status_code)
 
