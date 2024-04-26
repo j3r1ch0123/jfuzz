@@ -30,8 +30,7 @@ def main(url, wordlist):
     for line in wordlist:
         fuzz = url + line.strip()
         response = requests.get(fuzz)
-        if response.status_code == 200:
-            print(fuzz, response.status_code)
+        print(fuzz, response.status_code)
 
 if __name__ == "__main__":
     print(banner)
