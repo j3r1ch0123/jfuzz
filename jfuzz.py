@@ -34,10 +34,10 @@ def main(url, wordlist, extensions):
 
 if __name__ == "__main__":
     print(banner)
-    url = ''
-    wordlist = ''
+    url = ""
+    wordlist = ""
     thread_number = 1
-    extensions = "" # Empty string in case of no extensions
+    extensions = "/usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt" # Empty string in case of no extensions
 
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hu:w:t:x:", ["url=", "wordlist=", "threads=", "extensions="])
