@@ -30,7 +30,10 @@ def main(url, wordlist, extensions):
     for line in wordlist:
         fuzz = url + line.strip() + extensions
         response = requests.get(fuzz)
-        print(fuzz, response.status_code)
+        if response.status_code == 404:
+             continue
+        else:
+             print(fuzz, response.status_code)
 
 if __name__ == "__main__":
     print(banner)
